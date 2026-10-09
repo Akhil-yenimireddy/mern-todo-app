@@ -25,14 +25,14 @@ function AddTask() {
   }, []);
 
   const fetchCategories = async () => {
-    const res = await fetch('http://localhost:5000/api/categories', { headers: authHeaders });
+    const res = await fetch('https://mern-todo-backend.onrender.com/api/categories', { headers: authHeaders });
     const data = await res.json();
     setCategories(data);
   };
 
   const addCategory = async () => {
     if (!newCategory.trim()) return;
-    const res = await fetch('http://localhost:5000/api/categories', {
+    const res = await fetch('https://mern-todo-backend.onrender.com/api/categories', {
       method: 'POST',
       headers: authHeaders,
       body: JSON.stringify({ name: newCategory }),
@@ -49,7 +49,7 @@ function AddTask() {
       setError('Task title is required');
       return;
     }
-    await fetch('http://localhost:5000/api/tasks', {
+    await fetch('https://mern-todo-backend.onrender.com/api/tasks', {
       method: 'POST',
       headers: authHeaders,
       body: JSON.stringify({

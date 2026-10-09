@@ -20,14 +20,14 @@ function Dashboard({ user, setUser }) {
   }, []);
 
   const fetchStats = async () => {
-    const res = await fetch('http://localhost:5000/api/tasks/stats', { headers: authHeaders });
+    const res = await fetch('https://mern-todo-backend.onrender.com/api/tasks/stats', { headers: authHeaders });
     if (res.status === 401) return handleLogout();
     const data = await res.json();
     setStats(data);
   };
 
   const fetchTodayTasks = async () => {
-    const res = await fetch('http://localhost:5000/api/tasks', { headers: authHeaders });
+    const res = await fetch('https://mern-todo-backend.onrender.com/api/tasks', { headers: authHeaders });
     if (res.status === 401) return handleLogout();
     const data = await res.json();
     const today = new Date().toDateString();
@@ -36,7 +36,7 @@ function Dashboard({ user, setUser }) {
   };
 
   const toggleComplete = async (task) => {
-    await fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+    await fetch(`https://mern-todo-backend.onrender.com/api/tasks/${task._id}`, {
       method: 'PUT',
       headers: authHeaders,
       body: JSON.stringify({ status: task.status === 'completed' ? 'pending' : 'completed' }),
@@ -46,7 +46,7 @@ function Dashboard({ user, setUser }) {
   };
 
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/api/tasks/${id}`, { method: 'DELETE', headers: authHeaders });
+    await fetch(`https://mern-todo-backend.onrender.com/api/tasks/${id}`, { method: 'DELETE', headers: authHeaders });
     fetchStats();
     fetchTodayTasks();
   };

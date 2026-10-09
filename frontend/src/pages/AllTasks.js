@@ -21,13 +21,13 @@ function AllTasks() {
   }, []);
 
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/api/tasks', { headers: authHeaders });
+    const res = await fetch('https://mern-todo-backend.onrender.com/api/tasks', { headers: authHeaders });
     const data = await res.json();
     setTasks(data);
   };
 
   const toggleComplete = async (task) => {
-    await fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+    await fetch(`https://mern-todo-backend.onrender.com/api/tasks/${task._id}`, {
       method: 'PUT',
       headers: authHeaders,
       body: JSON.stringify({ status: task.status === 'completed' ? 'pending' : 'completed' }),
@@ -37,7 +37,7 @@ function AllTasks() {
 
   const deleteTask = async (id) => {
     if (!window.confirm('Delete this task?')) return;
-    await fetch(`http://localhost:5000/api/tasks/${id}`, { method: 'DELETE', headers: authHeaders });
+    await fetch(`https://mern-todo-backend.onrender.com/api/tasks/${id}`, { method: 'DELETE', headers: authHeaders });
     fetchTasks();
   };
 
