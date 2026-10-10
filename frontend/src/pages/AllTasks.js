@@ -46,8 +46,11 @@ function AllTasks() {
     return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   };
 
-  const isOverdue = (task) =>
-    task.status === 'pending' && task.dueDate && new Date(task.dueDate) < new Date();
+  const isOverdue = (task) => {
+  const startOfToday = new Date();
+  startOfToday.setHours(0, 0, 0, 0);
+  return task.status === 'pending' && task.dueDate && new Date(task.dueDate) < startOfToday;
+};
 
   const priorityBadge = {
     High: { bg: '#FF6B6B25', text: '#FF6B6B' },
