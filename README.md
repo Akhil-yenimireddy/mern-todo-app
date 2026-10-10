@@ -2,7 +2,7 @@
 
 A full-stack task management app with user authentication, a stats dashboard, and full CRUD for tasks.
 
-**Live demo:** https://mern-todo-app-akhil-d638.vercel.app
+**Live demo:** https://akhil-task-manager.vercel.app
 **Backend API:** https://mern-todo-backend-gdfu.onrender.com
 
 > The backend is on Render's free tier, so the first request after a quiet period can take 30-60 seconds to wake up.
