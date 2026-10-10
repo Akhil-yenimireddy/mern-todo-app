@@ -30,7 +30,17 @@ A full-stack task management app with user authentication, a stats dashboard, an
 
 ## Screenshots
 
-_Add screenshots of the Dashboard, All Tasks and Profile pages here._
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### All Tasks
+![All Tasks](screenshots/all-tasks.png)
+
+### Add Task
+![Add Task](screenshots/add-task.png)
+
+### Profile
+![Profile](screenshots/profile.png)
 
 ## Run Locally
 
