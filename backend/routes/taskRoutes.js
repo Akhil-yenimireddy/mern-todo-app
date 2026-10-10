@@ -15,6 +15,7 @@ router.get('/', protect, async (req, res) => {
 router.get('/stats', protect, async (req, res) => {
   const tasks = await Task.find({ user: req.userId });
   const now = new Date();
+  now.setHours(0, 0, 0, 0);
 
   const total = tasks.length;
   const completed = tasks.filter((t) => t.status === 'completed').length;

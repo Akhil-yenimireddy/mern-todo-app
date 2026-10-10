@@ -63,8 +63,11 @@ function Dashboard({ user, setUser }) {
     return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   };
 
-  const isOverdue = (task) =>
-    task.status === 'pending' && task.dueDate && new Date(task.dueDate) < new Date();
+  const isOverdue = (task) => {
+  const startOfToday = new Date();
+  startOfToday.setHours(0, 0, 0, 0);
+  return task.status === 'pending' && task.dueDate && new Date(task.dueDate) < startOfToday;
+};
 
   const priorityColor = {
     High: '#FF6B6B',
