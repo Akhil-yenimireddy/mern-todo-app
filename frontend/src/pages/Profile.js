@@ -7,7 +7,7 @@ function Profile({ user }) {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch('https://mern-todo-backend.onrender.com/api/tasks/stats', {
+    fetch('https://mern-todo-backend-gdfu.onrender.com/api/tasks/stats', {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())

@@ -28,7 +28,7 @@ function EditTask() {
   }, []);
 
   const fetchTask = async () => {
-    const res = await fetch(`https://mern-todo-backend.onrender.com/api/tasks/${id}`, { headers: authHeaders });
+    const res = await fetch(`https://mern-todo-backend-gdfu.onrender.com/api/tasks/${id}`, { headers: authHeaders });
     const data = await res.json();
     setTitle(data.title);
     setDescription(data.description || '');
@@ -40,13 +40,13 @@ function EditTask() {
   };
 
   const fetchCategories = async () => {
-    const res = await fetch('https://mern-todo-backend.onrender.com/api/categories', { headers: authHeaders });
+    const res = await fetch('https://mern-todo-backend-gdfu.onrender.com/api/categories', { headers: authHeaders });
     const data = await res.json();
     setCategories(data);
   };
 
   const handleSave = async () => {
-    await fetch(`https://mern-todo-backend.onrender.com/api/tasks/${id}`, {
+    await fetch(`https://mern-todo-backend-gdfu.onrender.com/api/tasks/${id}`, {
       method: 'PUT',
       headers: authHeaders,
       body: JSON.stringify({
